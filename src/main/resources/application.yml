@@ -1,0 +1,32 @@
+#正常写法
+#student:
+#  name: goudan
+#  age: 11
+
+#行内写法
+#student: {name: goudan,age: 11}
+
+#数组
+#pets:
+#  - cat
+#  - dog
+#  - pig
+#pet: [cat,dog,pig]
+person:
+  name: nb${random.int}
+  age: 1
+  email: 123
+  happy: false
+  maps: {k1: v1,k2: v2}
+  lists: [code,music]
+  dog:
+    name: goudan_${person.hello:hello}
+    age: 1
+server:
+  port: 8080
+spring:
+  profiles:
+    active: dev
+
+
+
