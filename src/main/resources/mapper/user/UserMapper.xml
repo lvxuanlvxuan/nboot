@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nb.springboot.nboot.mapper.UserMapper">
+
+    <resultMap type="com.nb.springboot.nboot.pojo.User" id="UserResult">
+        <result property="id"       column="id"       />
+        <result property="name"    column="name"    />
+        <result property="age"     column="age"     />
+        <result property="email"  column="email"  />
+        <result property="gmtCreate"         column="gmt_create"          />
+        <result property="gmtModified"       column="gmt_modified"       />
+        <result property="version"     column="version"     />
+    </resultMap>
+
+    <sql id="selectUserVo">
+        select id,name,age,email,gmt_create,gmt_modified,version from user
+    </sql>
+
+    <select id="selectUserByName" parameterType="java.lang.String" resultMap="UserResult">
+        <include refid="selectUserVo"/>
+        where name=#{name};
+    </select>
+
+    <insert id="insertOne" parameterType="map">
+        insert into user (name,age) values (#{name},#{age});
+    </insert>
+
+    <select id="queryByMap" parameterType="map" resultType="">
+
+    </select>
+
+
+
+
+</mapper>
